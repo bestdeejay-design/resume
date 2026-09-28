@@ -16,7 +16,7 @@
   --space-3: 1rem;
   --space-4: 1.5rem;
   --space-5: 2.5rem;
-  --space-6: 4rem;
+  --space-6: 5.5rem;
 
   --radius: 10px;
   --header-h: 60px;
@@ -45,8 +45,19 @@ h1, h2, h3 {
 }
 
 h1 { font-size: clamp(2.4rem, 6vw, 4rem); letter-spacing: 0.01em; }
-h2 { font-size: clamp(1.5rem, 3.4vw, 2.1rem); margin-top: var(--space-6); }
+h2 { font-size: clamp(1.6rem, 3.4vw, 2.2rem); margin-top: var(--space-6); letter-spacing: 0.005em; }
 h3 { font-size: 1.25rem; }
+
+/* Мера строки 60–75 символов для текстовых блоков */
+.about-card p,
+.t-item > p,
+.cards p,
+.price p,
+#talks > p,
+#consulting > p,
+#contacts > p {
+  max-width: 68ch;
+}
 
 p { margin: 0 0 var(--space-3); }
 
@@ -141,9 +152,9 @@ a:hover { text-decoration-thickness: 2px; }
 .circuit path {
   stroke: var(--amber);
   stroke-width: 1.5;
-  opacity: 0.28;
+  opacity: 0.16;
 }
-.circuit circle { fill: var(--amber); opacity: 0.55; }
+.circuit circle { fill: var(--amber); opacity: 0.4; }
 
 .hero-in {
   position: relative;
@@ -163,7 +174,13 @@ a:hover { text-decoration-thickness: 2px; }
 .roles { font-size: 1.15rem; }
 .roles strong { color: var(--amber); }
 
-.lead { font-size: 1.2rem; max-width: 38rem; }
+/* Hero — одна уверенная строка позиционирования */
+.lead {
+  font-family: var(--font-display);
+  font-size: clamp(1.35rem, 3vw, 1.8rem);
+  line-height: 1.4;
+  max-width: 28rem;
+}
 
 .cta {
   display: flex;
@@ -284,7 +301,8 @@ a:hover { text-decoration-thickness: 2px; }
 }
 .stat-v {
   font-family: var(--font-mono);
-  font-size: 1.7rem;
+  font-size: 2.1rem;
+  line-height: 1.15;
   color: var(--amber);
   margin: 0 0 var(--space-2);
 }
@@ -376,6 +394,48 @@ li.is-hot { border-color: var(--amber); }
   padding: var(--space-1) var(--space-3);
 }
 
+/* ---------- Spec: честные статусы строкой спецификации ---------- */
+.spec {
+  margin: var(--space-3) 0 0;
+  padding: var(--space-2) 0 0;
+  border-top: 1px solid var(--line);
+  font-family: var(--font-mono);
+  font-size: 0.85rem;
+}
+.spec div {
+  display: grid;
+  grid-template-columns: 9rem 1fr;
+  gap: var(--space-2);
+  padding: var(--space-1) 0;
+}
+.spec dt { color: var(--muted); }
+.spec dd { margin: 0; }
+
+/* ---------- Consulting: прайс-спецификация ---------- */
+.formats {
+  font-family: var(--font-mono);
+  font-size: 0.9rem;
+  color: var(--muted);
+}
+
+.price {
+  list-style: none;
+  margin: var(--space-4) 0;
+  padding: 0;
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: var(--space-3);
+}
+.price > li {
+  background: var(--panel);
+  border: 1px solid var(--line);
+  border-radius: var(--radius);
+  padding: var(--space-4);
+}
+.price h3 { font-size: 1.1rem; }
+.price p { font-size: 0.95rem; }
+.price .spec { margin-top: var(--space-2); }
+
 /* ---------- Contacts ---------- */
 .contact-list {
   list-style: none;
@@ -439,6 +499,7 @@ li.is-hot { border-color: var(--amber); }
   .hero-in { grid-template-columns: 1fr; }
   .stats { grid-template-columns: repeat(2, 1fr); }
   .cards { grid-template-columns: 1fr; }
+  .price { grid-template-columns: 1fr; }
   .contact-list { grid-template-columns: 1fr; }
 }
 
@@ -448,6 +509,7 @@ li.is-hot { border-color: var(--amber); }
   .stats { grid-template-columns: 1fr; }
   .site-nav { font-size: 0.85rem; gap: var(--space-2); }
   .dossier dl div { grid-template-columns: 1fr; gap: 0; }
+  .spec div { grid-template-columns: 1fr; gap: 0; }
 }
 
 @media (prefers-reduced-motion: reduce) {
