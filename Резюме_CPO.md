@@ -10,6 +10,7 @@
 - **Email:** bestdeejay@ya.ru
 - **Telegram:** @bestdeejay
 - **Max:** https://max.ru/u/f9LHodD0cOJ9_ibWSdcgdYyLWl0-hGhVdCoBUWziU1rJv7sgN9oay2Dg86Y
+- **LinkedIn:** https://www.linkedin.com/in/bestdeejay
 - Также на связи: Whatsapp, Viber
 
 ## Условия

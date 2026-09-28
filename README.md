@@ -21,6 +21,7 @@
 - Телефон: +7 (911) 928-74-78
 - Email: bestdeejay@ya.ru
 - Telegram: [@bestdeejay](https://t.me/bestdeejay)
+- LinkedIn: [bestdeejay](https://www.linkedin.com/in/bestdeejay)
 
 ## Как устроен репозиторий
 
