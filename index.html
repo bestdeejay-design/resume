@@ -14,7 +14,7 @@
 <meta property="og:image" content="assets/og-image.png">
 <meta name="twitter:card" content="summary_large_image">
 <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Crect width='32' height='32' rx='7' fill='%2305070D'/%3E%3Ccircle cx='9' cy='16' r='3' fill='none' stroke='%23E5A33C' stroke-width='2'/%3E%3Ccircle cx='23' cy='16' r='3' fill='none' stroke='%236EE7FF' stroke-width='2'/%3E%3Cpath d='M12 16h8' stroke='%23F2EDE3' stroke-width='2'/%3E%3C/svg%3E">
-<link rel="stylesheet" href="./styles.css">
+<link rel="stylesheet" href="./styles.css?v=3">
 <script type="application/ld+json">
 {"@context":"https://schema.org","@type":"Person","name":"Sergey Kuzyukov",
 "alternateName":"Сергей Кузюков","jobTitle":["CDTO","CTO","CPO"],
@@ -23,9 +23,16 @@
 "sameAs":["https://t.me/bestdeejay","https://www.linkedin.com/in/bestdeejay","https://github.com/bestdeejay-design/resume"],
 "knowsAbout":["Digital Transformation","Fintech","Regulatory Compliance","Highload Architecture","AI Agents","P&L Management"]}
 </script>
-<script src="./app.js" defer></script>
+<script src="./app.js?v=3" defer></script>
 </head>
 <body>
+<input class="sr-only" type="radio" name="theme" id="t-deck" value="deck" checked>
+<input class="sr-only" type="radio" name="theme" id="t-brief" value="brief">
+<input class="sr-only" type="radio" name="theme" id="t-terminal" value="terminal">
+<input class="sr-only" type="radio" name="lang" id="l-ru" value="ru" checked>
+<input class="sr-only" type="radio" name="lang" id="l-en" value="en">
+<noscript><p class="noscript">JS выключен / JS disabled: Deck · Brief · RU · EN переключаются и без JS. Терминал, счётчики, ссылки с параметрами — только с JS.</p></noscript>
+<div class="page">
 <a class="skip" href="#main"><span class="t-ru">Перейти к содержимому</span><span class="t-en">Skip to content</span></a>
 
 <header class="top">
@@ -45,13 +52,13 @@
     </nav>
     <div class="controls">
       <div class="seg" role="group" aria-label="Theme">
-        <button type="button" data-set-theme="deck" aria-pressed="true">Deck</button>
-        <button type="button" data-set-theme="brief" aria-pressed="false">Brief</button>
-        <button type="button" data-set-theme="terminal" aria-pressed="false" title="Terminal ( ` )">CLI</button>
+        <label for="t-deck" data-active="true">Deck</label>
+        <label for="t-brief" data-active="false">Brief</label>
+        <label for="t-terminal" data-active="false" title="Terminal ( ` )">CLI</label>
       </div>
       <div class="seg" role="group" aria-label="Language">
-        <button type="button" data-set-lang="ru" aria-pressed="true">RU</button>
-        <button type="button" data-set-lang="en" aria-pressed="false">EN</button>
+        <label for="l-ru" data-active="true">RU</label>
+        <label for="l-en" data-active="false">EN</label>
       </div>
     </div>
   </div>
@@ -91,10 +98,10 @@
         <div><span class="p">$</span> compliance --check <span class="a">OK</span></div>
         <div class="d">BPA · Central Bank · 161/115/54/152-FZ · SBP/QR</div>
         <div class="mini-stats">
-          <div><b data-count="17" data-suffix="">0</b><span><span class="t-ru">лет непрерывно</span><span class="t-en">years straight</span></span></div>
-          <div><b data-count="500" data-suffix="K+">0</b><span><span class="t-ru">пользователей</span><span class="t-en">users</span></span></div>
+          <div><b data-count="17" data-suffix="">17</b><span><span class="t-ru">лет непрерывно</span><span class="t-en">years straight</span></span></div>
+          <div><b data-count="500" data-suffix="K+">500K+</b><span><span class="t-ru">пользователей</span><span class="t-en">users</span></span></div>
           <div><b data-count="4.1" data-dec="1" data-suffix-ru=" млрд" data-suffix-en="B">4,1 млрд</b><span><span class="t-ru">млрд ₽, сбер max</span><span class="t-en">₽B, sber max</span></span></div>
-          <div><b data-count="2" data-suffix="">0</b><span><span class="t-ru">мес. вуз до демо</span><span class="t-en">mo univ to demo</span></span></div>
+          <div><b data-count="2" data-suffix="">2</b><span><span class="t-ru">мес. вуз до демо</span><span class="t-en">mo univ to demo</span></span></div>
         </div>
       </div>
     </aside>
@@ -162,9 +169,9 @@
 <section class="wrap" id="numbers">
   <h2 class="reveal"><span class="n">02 / NUMBERS</span><span class="t-ru">Цифры, которые проверяются</span><span class="t-en">Numbers that check out</span></h2>
   <div class="nums">
-    <div class="num reveal"><b data-count="17" data-suffix="+">0</b><span><span class="t-ru">лет непрерывного стажа в IT — с ноября 2008</span><span class="t-en">years of continuous IT tenure — since Nov 2008</span></span></div>
+    <div class="num reveal"><b data-count="17" data-suffix="+">17+</b><span><span class="t-ru">лет непрерывного стажа в IT — с ноября 2008</span><span class="t-en">years of continuous IT tenure — since Nov 2008</span></span></div>
     <div class="num reveal"><b>5 → 45</b><span><span class="t-ru">разработчиков с нуля + 8 выращенных менеджеров</span><span class="t-en">developers built from scratch + 8 managers grown</span></span></div>
-    <div class="num reveal"><b data-count="500" data-suffix="K / 30K+">0</b><span><span class="t-ru">пользователей и партнёров платформы лояльности на пике</span><span class="t-en">loyalty-platform users and partners at peak</span></span></div>
+    <div class="num reveal"><b data-count="500" data-suffix="K / 30K+">500K / 30K+</b><span><span class="t-ru">пользователей и партнёров платформы лояльности на пике</span><span class="t-en">loyalty-platform users and partners at peak</span></span></div>
     <div class="num reveal"><b>≈ ₽1B</b><span><span class="t-ru">выручка группы по ИТ-разработке в год (2023, 2024)</span><span class="t-en">group yearly revenue from IT development (2023, 2024)</span></span></div>
   </div>
 </section>
@@ -301,9 +308,11 @@
 <footer class="site-footer">
   <div class="wrap foot">
     <span>© <span id="y">2026</span> kuzyukov · 0 deps · <span class="t-ru">факты из MASTER</span><span class="t-en">facts from MASTER</span></span>
-    <span class="no-print mono">theme: deck / brief / cli · lang: ru / en · <a href="https://github.com/bestdeejay-design/resume">github</a></span>
+    <span class="no-print mono">theme: deck / brief / cli · lang: ru / en · <span id="js-flag">js: off</span> · <a href="https://github.com/bestdeejay-design/resume">github</a></span>
   </div>
 </footer>
+<div class="toast" id="toast" role="status"></div>
+</div><!-- /.page -->
 
 <!-- CLI OVERLAY -->
 <div id="cli" hidden>
@@ -311,18 +320,17 @@
     <span class="dots"><i></i><i></i><i></i></span>
     <span class="mono">kuzyukov — cli · <span class="t-ru">введите</span><span class="t-en">type</span> <b>help</b></span>
     <span class="seg">
-      <button type="button" data-set-theme="deck">Deck</button>
-      <button type="button" data-set-theme="brief">Brief</button>
-      <button type="button" data-set-theme="terminal" aria-pressed="true">CLI</button>
+      <label for="t-deck">Deck</label>
+      <label for="t-brief">Brief</label>
+      <label for="t-terminal">CLI</label>
     </span>
   </div>
-  <div class="cli-body wrap" id="cli-out" role="log" aria-live="polite" aria-label="Terminal output"></div>
+  <div class="cli-body wrap" id="cli-out" role="log" aria-live="polite" aria-label="Terminal output"><div class="cli-fallback" id="cli-fallback"><span class="t-ru">Терминал оживает с включённым JS. Без JS работают кнопки Deck / Brief и RU / EN выше.</span><span class="t-en">The terminal needs JS enabled. Without JS, use the Deck / Brief and RU / EN switches above.</span></div></div>
   <form class="cli-form wrap" id="cli-form" autocomplete="off" spellcheck="false">
     <label class="prompt" for="cli-in">kuzyukov@cdto:~$</label>
     <input id="cli-in" name="cmd" type="text" autocomplete="off" autocapitalize="off" aria-label="Terminal command">
   </form>
 </div>
 
-<div class="toast" id="toast" role="status"></div>
 </body>
 </html>

@@ -48,8 +48,10 @@ var cliBooted = false;
 function setTheme(t) {
   if (THEMES.indexOf(t) < 0) t = "deck";
   root.dataset.theme = t;
-  $$("[data-set-theme]").forEach(function (b) {
-    if (b.tagName === "BUTTON") b.setAttribute("aria-pressed", b.dataset.setTheme === t ? "true" : "false");
+  var r = document.querySelector('input[name="theme"][value="' + t + '"]');
+  if (r) r.checked = true;
+  $$('label[for^="t-"]').forEach(function (el) {
+    el.setAttribute("data-active", el.getAttribute("for") === "t-" + t ? "true" : "false");
   });
   store("kz-theme", t);
   var cli = $("#cli");
@@ -70,8 +72,10 @@ function setLang(l) {
   document.title = TITLES[l];
   var m = document.querySelector('meta[name="description"]');
   if (m) m.setAttribute("content", DESCS[l]);
-  $$("[data-set-lang]").forEach(function (b) {
-    b.setAttribute("aria-pressed", b.dataset.setLang === l ? "true" : "false");
+  var r = document.querySelector('input[name="lang"][value="' + l + '"]');
+  if (r) r.checked = true;
+  $$('label[for^="l-"]').forEach(function (el) {
+    el.setAttribute("data-active", el.getAttribute("for") === "l-" + l ? "true" : "false");
   });
   store("kz-lang", l);
   syncURL();
@@ -83,12 +87,14 @@ function setLang(l) {
   var p = getParams();
   var y = $("#y");
   if (y) y.textContent = String(new Date().getFullYear());
+  var jf = $("#js-flag");
+  if (jf) jf.textContent = "js: on";
   setLang(p.get("lang") || read("kz-lang") || "ru");
   setTheme(p.get("theme") || read("kz-theme") || "deck");
 })();
 
-$$("[data-set-theme]").forEach(function (b) { b.addEventListener("click", function () { setTheme(b.dataset.setTheme); }); });
-$$("[data-set-lang]").forEach(function (b) { b.addEventListener("click", function () { setLang(b.dataset.setLang); }); });
+$$('input[name="theme"]').forEach(function (r) { r.addEventListener("change", function () { setTheme(r.value); }); });
+$$('input[name="lang"]').forEach(function (r) { r.addEventListener("change", function () { setLang(r.value); }); });
 
 /* keyboard: ` → terminal, Esc → deck */
 document.addEventListener("keydown", function (e) {
@@ -263,6 +269,8 @@ LINKS["mail-project"] = "mailto:bestdeejay@ya.ru?subject=Project%20with%20Axiiom
 function bootCli() {
   if (cliBooted || !cliOut) return;
   cliBooted = true;
+  var fb = $("#cli-fallback");
+  if (fb && fb.parentNode) fb.parentNode.removeChild(fb);
   var l = lang();
   cliPrint("d", l === "ru"
     ? "kuzyukov-cli v1.0 · факты из MASTER от 28.09.2026 · ничего не выдумано"
