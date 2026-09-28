@@ -49,7 +49,6 @@ h2 { font-size: clamp(1.6rem, 3.4vw, 2.2rem); margin-top: var(--space-6); letter
 h3 { font-size: 1.25rem; }
 
 /* Мера строки 60–75 символов для текстовых блоков */
-.about-card p,
 .t-item > p,
 .cards p,
 .price p,
@@ -233,56 +232,30 @@ a:hover { text-decoration-thickness: 2px; }
 .dossier dt { color: var(--muted); }
 .dossier dd { margin: 0; }
 
-/* ---------- Role switch ---------- */
-.role-switch {
-  display: grid;
-  grid-template-columns: repeat(3, 1fr);
-  gap: var(--space-2);
-  margin: var(--space-4) 0;
-  border: 0;
+/* ---------- Манифест ---------- */
+#about .lead { max-width: 68ch; }
+.creed {
+  list-style: none;
+  counter-reset: creed;
+  margin: var(--space-4) 0 0;
   padding: 0;
+  display: grid;
+  gap: var(--space-3);
+  max-width: 68ch;
 }
-.role-switch legend {
+.creed li {
+  counter-increment: creed;
+  border-left: 3px solid var(--amber);
+  padding-left: var(--space-3);
+}
+.creed li::before {
+  content: "0" counter(creed);
+  display: block;
   font-family: var(--font-mono);
   font-size: 0.8rem;
-  color: var(--muted);
-  padding: 0;
-  margin-bottom: var(--space-2);
+  color: var(--amber);
+  margin-bottom: var(--space-1);
 }
-.role-switch button {
-  font-family: var(--font-body);
-  background: var(--panel);
-  color: var(--bone);
-  border: 1px solid var(--line);
-  border-radius: var(--radius);
-  padding: var(--space-3);
-  cursor: pointer;
-  text-align: left;
-  display: grid;
-  gap: var(--space-1);
-}
-.role-switch button strong {
-  font-family: var(--font-mono);
-  font-size: 1.1rem;
-  letter-spacing: 0.06em;
-}
-.role-switch button span { color: var(--muted); font-size: 0.85rem; }
-.role-switch button[aria-pressed="true"] {
-  border-color: var(--amber);
-  box-shadow: inset 3px 0 0 var(--amber);
-}
-.role-switch button[aria-pressed="true"] strong { color: var(--amber); }
-
-.about-card {
-  background: var(--panel);
-  border: 1px solid var(--line);
-  border-left: 3px solid var(--amber);
-  border-radius: var(--radius);
-  padding: var(--space-4);
-}
-.about-card h3 { color: var(--amber); }
-.about-card p:last-child { margin-bottom: 0; }
-.about-hint { color: var(--muted); font-size: 0.9rem; margin-top: var(--space-2); }
 
 /* ---------- Stats ---------- */
 .stats {
@@ -353,11 +326,7 @@ a:hover { text-decoration-thickness: 2px; }
 }
 .t-sub strong { color: var(--amber); }
 
-/* Подсветка релевантности от переключателя ролей */
-.t-item, .t-sub li { transition: opacity 0.25s ease, border-color 0.25s ease; }
-.is-dim { opacity: 0.45; }
-.is-hot { border-color: var(--amber); }
-li.is-hot { border-color: var(--amber); }
+/* Подсветка удалена вместе с переключателем ролей */
 
 /* ---------- Cards / chips ---------- */
 .cards {
@@ -505,7 +474,6 @@ li.is-hot { border-color: var(--amber); }
 
 @media (max-width: 560px) {
   body { font-size: 1rem; }
-  .role-switch { grid-template-columns: 1fr; }
   .stats { grid-template-columns: 1fr; }
   .site-nav { font-size: 0.85rem; gap: var(--space-2); }
   .dossier dl div { grid-template-columns: 1fr; gap: 0; }
@@ -514,5 +482,4 @@ li.is-hot { border-color: var(--amber); }
 
 @media (prefers-reduced-motion: reduce) {
   html { scroll-behavior: auto; }
-  .t-item, .t-sub li { transition: none; }
 }
