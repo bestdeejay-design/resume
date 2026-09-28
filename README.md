@@ -1,3 +1,5 @@
+![Сергей Кузюков — CTO / CDTO / CPO](assets/header.svg)
+
 # Кузюков Сергей — CPO / CTO / CDTO
 
 > 🌐 Онлайн-версия: https://bestdeejay-design.github.io/resume/
@@ -39,3 +41,13 @@ CEO/CPO/CTO. Fintech with compliance (BPA, Central Bank of Russia, 161/115/54/15
 highload architectures, AI agent infrastructure. Currently: LOVII (pre-release local
 marketplaces) and UniverID (digital ecosystem for SPbSTI). Open to CTO roles, targeting
 CDTO. Contact: bestdeejay@ya.ru, t.me/bestdeejay.*
+
+---
+
+## QR-визитка
+
+![QR-визитка — наведи камеру, контакты сохранятся](assets/qr-vcard.png)
+
+*Наведи камеру — контакты сохранятся*
+
+![Контакты](assets/footer.svg)
