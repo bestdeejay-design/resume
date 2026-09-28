@@ -141,6 +141,7 @@ function countUp(b) {
 
 /* ---------- reveal ---------- */
 (function reveal() {
+  root.classList.add("js");
   var els = $$(".reveal");
   if (!els.length || !("IntersectionObserver" in window)) { els.forEach(function (n) { n.classList.add("on"); }); return; }
   var io = new IntersectionObserver(function (es) {

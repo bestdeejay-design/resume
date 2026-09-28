@@ -69,7 +69,7 @@ html[data-theme="brief"] .seg button[aria-pressed="true"]{color:#fff}
 .role-line b{color:var(--amber)}
 .lead{font-size:clamp(1.22rem,2.6vw,1.6rem);line-height:1.4;font-weight:600;max-width:32rem}
 .lead em{font-style:normal;color:var(--amber)}
-.formula{font-family:var(--f-m);font-size:.88rem;color:var(--muted);border:1px dashed var(--line);border-radius:10px;padding:.7rem 1rem;margin:18px 0;max-width:38rem}
+.formula{font-family:var(--f-m);font-size:.88rem;color:var(--muted);border:1px dashed var(--line);border-radius:10px;padding:.7rem 1rem;margin:18px 0;max-width:38rem;overflow-wrap:anywhere}
 .formula b{color:var(--phosphor);font-weight:400}
 .cta{display:flex;gap:10px;flex-wrap:wrap;margin:20px 0 12px}
 .btn{display:inline-block;padding:.72rem 1.25rem;border-radius:10px;font-weight:700;text-decoration:none;border:1px solid var(--amber);color:var(--amber);font-size:.95rem;background:transparent;cursor:pointer;font-family:var(--f-d)}
@@ -128,7 +128,7 @@ html[data-theme="brief"] .exec b{color:var(--text)}
 .flow .arr{color:var(--amber)}
 .effect{font-size:.93rem;border-left:3px solid var(--amber);padding-left:12px;margin-top:4px}
 .effect b{color:var(--amber)}
-.stack{font-family:var(--f-m);font-size:.74rem;color:var(--dim);margin-top:auto;padding-top:10px;border-top:1px dotted var(--line)}
+.stack{font-family:var(--f-m);font-size:.74rem;color:var(--dim);margin-top:auto;padding-top:10px;border-top:1px dotted var(--line);overflow-wrap:anywhere}
 /* numbers */
 .nums{display:grid;grid-template-columns:repeat(4,1fr);gap:14px;margin-top:18px}
 .num{background:var(--panel);border:1px solid var(--line);border-radius:var(--r);padding:20px}
