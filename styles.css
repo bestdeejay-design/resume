@@ -78,7 +78,7 @@ html[data-theme="brief"] .seg label[data-active="true"]:hover,#t-brief:checked ~
 body:has(#t-deck:checked) label[for="t-deck"],body:has(#t-brief:checked) label[for="t-brief"],body:has(#t-terminal:checked) label[for="t-terminal"],body:has(#l-ru:checked) label[for="l-ru"],body:has(#l-en:checked) label[for="l-en"]{background:var(--primary);color:#14100a;font-weight:700}
 body:has(#t-brief:checked):has(#t-deck:checked) label[for="t-deck"],body:has(#t-brief:checked):has(#t-brief:checked) label[for="t-brief"],body:has(#t-brief:checked):has(#t-terminal:checked) label[for="t-terminal"],body:has(#t-brief:checked):has(#l-ru:checked) label[for="l-ru"],body:has(#t-brief:checked):has(#l-en:checked) label[for="l-en"]{color:#fff}
 /* ============ HERO ============ */
-.hero{padding:60px 0 36px;position:relative;isolation:isolate}
+.hero{padding:60px 0 36px;position:relative;isolation:isolate;overflow-x:hidden;overflow-x:clip}
 .hero::before{
   content:"";position:absolute;z-index:0;top:-190px;right:-230px;width:680px;height:570px;pointer-events:none;opacity:.68;
   background:
@@ -258,30 +258,115 @@ html[data-theme="terminal"] .page,#t-terminal:checked ~ .page{display:none}
 .cli-form .prompt{color:var(--primary);white-space:nowrap}
 .cli-form input{flex:1;min-width:0;background:transparent;border:0;outline:0;color:var(--text);font:inherit;caret-color:var(--signal)}
 /* ============ ADAPTIVE ============ */
+/* Global Fold-safe guards: never wider than viewport, long strings wrap */
+img,svg,canvas,video,iframe{max-width:100%}
+.hero-grid>*,.cards3>*,.nums>*,.ai-grid>*,.fmt-grid>*,.contact-grid>*,.proof-grid>*,.v-grid>*,.mini-stats>*,.comp>div,.track li,.case,.num,.ai,.fmt,.c-card,.pf,.exec li,.hero-intro,.term,.brief-card{min-width:0}
+a,.mono,.flow,.stack,.term-body,.kv dd,.kv dt,.c-card a,.pf b,.formula,.typed,.toast{overflow-wrap:anywhere;word-break:break-word}
+table{width:100%;max-width:100%;display:block;overflow-x:auto}
+/* 1440 — full desktop: cap only, grid already max 1120px */
+@media(max-width:1440px){
+  .hero{padding-top:52px}
+}
+/* 1024 — small desktop: 3→2 columns, tighten hero */
+@media(max-width:1024px){
+  .hero-grid{grid-template-columns:1.4fr 1fr;gap:22px}
+  .cards3{grid-template-columns:1fr 1fr}
+  .cards3 .case:last-child{grid-column:1/-1}
+  .nums{grid-template-columns:1fr 1fr}
+  .proof-grid{grid-template-columns:1fr 1fr 1fr}
+  h1{font-size:clamp(2.4rem,5.6vw,3.6rem)}
+}
+/* 920 — tablet landscape: single hero column, compact grids */
 @media(max-width:920px){
+  html{scroll-padding-top:132px}
   .hero-grid{grid-template-columns:1fr}
   .cards3{grid-template-columns:1fr}
+  .cards3 .case:last-child{grid-column:auto}
   .nums{grid-template-columns:1fr 1fr}
   .ai-grid,.fmt-grid,.contact-grid,.v-grid{grid-template-columns:1fr}
   .track li{grid-template-columns:1fr;gap:4px}
   .comp div{grid-template-columns:1fr;gap:2px}
   .proof-grid{grid-template-columns:1fr 1fr}
-  nav{display:none}
+  /* nav stays navigable: wrap to full row instead of hiding */
+  nav{display:flex;order:3;flex-basis:100%;gap:6px 14px;font-size:.85rem}
+  nav a{padding:.4rem 0}
+  .top-in{row-gap:8px}
 }
+/* 768 — tablet + unfolded Fold: everything single column, comfy targets */
+@media(max-width:768px){
+  html{scroll-padding-top:150px}
+  .wrap{padding-left:18px;padding-right:18px}
+  .hero{padding:40px 0 24px}
+  .lead{font-size:clamp(1.1rem,3.4vw,1.35rem)}
+  .cta{gap:8px}
+  .cta .btn{min-height:44px;display:inline-flex;align-items:center;justify-content:center}
+  .btn{min-height:44px}
+  .c-card button{min-height:44px}
+  .mini-stats{grid-template-columns:1fr 1fr}
+  .kv{grid-template-columns:minmax(0,8rem) minmax(0,1fr)}
+  .cli-body{font-size:.82rem}
+  .cli-form{flex-wrap:wrap}
+  .cli-form .prompt{font-size:.78rem;flex-basis:100%}
+  .cli-form input{font-size:16px}
+  .foot{flex-direction:column}
+}
+/* 560 — phone */
 @media(max-width:560px){
+  html{scroll-padding-top:170px}
   body{font-size:1rem}
+  .wrap{padding-left:16px;padding-right:16px}
+  .hero{padding-top:32px}
   .hero::before{width:480px;height:420px;top:-150px;right:-300px;opacity:.5}
   .hero-heading{gap:12px}
   .hero-avatar{width:80px;height:80px;padding:2px}
   .nums,.proof-grid{grid-template-columns:1fr}
+  .cta{flex-direction:column;align-items:stretch}
+  .cta .btn{width:100%;text-align:center}
   .top-in{gap:10px}
   .brand{font-size:.78rem}
   .status{font-size:.66rem;padding:.25rem .6rem}
   .seg{font-size:.72rem}
-  .seg label{padding:.38rem .55rem}
+  .seg label{padding:.5rem .6rem}
   .typed{font-size:.72rem}
   .term-body{font-size:.76rem}
-  .exec li{padding-left:52px}
+  .exec li{padding:12px 14px 12px 52px}
+  .mini-stats{grid-template-columns:1fr 1fr}
+  .c-card a{font-size:1.05rem}
+}
+/* 380 — phone 360 + margin: tighten gutters, shrink display type */
+@media(max-width:380px){
+  html{scroll-padding-top:186px}
+  .wrap{padding-left:14px;padding-right:14px}
+  h1{font-size:clamp(1.9rem,11vw,2.4rem)}
+  h2{font-size:clamp(1.2rem,6vw,1.4rem)}
+  .eyebrow{font-size:.72rem;letter-spacing:.1em}
+  .lead{font-size:1.08rem}
+  .formula{font-size:.8rem;padding:.6rem .8rem}
+  .exec li{padding:12px 12px 12px 48px}
+  .exec li::before{left:14px}
+  .case,.fmt,.ai,.c-card{padding:18px 16px}
+  .term-body{padding:1rem .9rem}
+  .mini-stats b{font-size:1.15rem}
+  .num b{font-size:1.6rem}
+  .cli-head{gap:8px}
+}
+/* 344 — folded Galaxy Fold: extreme narrow, zero tolerance for overflow */
+@media(max-width:344px){
+  .wrap{padding-left:12px;padding-right:12px}
+  h1{font-size:clamp(1.8rem,12vw,2.2rem)}
+  .hero-heading{gap:10px}
+  .hero-avatar{width:64px;height:64px}
+  .brand{font-size:.72rem;overflow-wrap:anywhere}
+  .status{font-size:.62rem;white-space:normal}
+  nav{font-size:.8rem;gap:4px 10px}
+  .seg{font-size:.68rem;max-width:100%}
+  .cta .btn{font-size:.9rem;padding:.72rem .8rem}
+  .mini-stats{grid-template-columns:1fr}
+  .kv{grid-template-columns:1fr;gap:0}
+  .kv dd{margin-bottom:6px}
+  .comp div{padding:8px 12px;font-size:.86rem}
+  .flow{font-size:.74rem;line-height:1.9}
+  .cli-form .prompt{white-space:normal}
 }
 @media(prefers-reduced-motion:reduce){
   html{scroll-behavior:auto}html.js .reveal{opacity:1;transform:none}

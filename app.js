@@ -465,6 +465,9 @@ if (cliForm && cliIn) {
   });
 }
 
+/* deep-link ?theme=terminal: init ran before CLI refs existed — boot now */
+if (root.dataset.theme === "terminal") bootCli();
+
 /* console egg */
 console.log("%c kuzyukov --help %c facts from MASTER, 0 invented ",
   "background:#F2F5F8;color:#071019;font-weight:bold", "color:#8CA9C7");
