@@ -3,6 +3,8 @@
 # Кузюков Сергей — CTO · CDTO · CPO
 
 > 🌐 Онлайн-версия: https://bestdeejay-design.github.io/resume/
+> Темы: Deck (тёмная) · Brief (светлая, для корпораций и печати) · CLI (терминал) · RU/EN.
+> Для международного работодателя: `?theme=brief&lang=en`. EN one-pager: [SUMMARY_INT.md](SUMMARY_INT.md).
 
 47 лет · Санкт-Петербург · переезд по России возможен · командировки — да
 
